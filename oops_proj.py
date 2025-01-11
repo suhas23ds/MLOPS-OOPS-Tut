@@ -3,6 +3,7 @@ class chatbook:
         self.username=""
         self.password=""
         self.login=False
+        self.msg=""
         self.menu()
     
     def menu(self):
@@ -11,7 +12,9 @@ class chatbook:
                             2. Press 2 to singup
                             3. Press 3 to write a post
                             4. Press 4 to message a friend
-                            5. Press any other key to exit''')
+                            5. Press any other key to exit
+                            
+                            --->''')
 
         if user_input == "1":
             self.signup()
@@ -20,7 +23,7 @@ class chatbook:
         elif user_input =="3":
             self.my_post()
         elif user_input =="4":
-            pass
+            self.send_message()
         else:
             exit()
 
@@ -54,4 +57,15 @@ class chatbook:
             print('you need to sigin first to post something')
         print('\n')
         self.menu()
+
+    def send_message(self):
+        if self.msg == True:
+            txt=input('enter the mesage to your friend ')
+            frnd=input('whom to send the message')
+            print(f'message send to the {txt}')
+        else:
+            print('you need to sigin before sending msg ')
+        print('\n')
+        self.menu()
+
 obj=chatbook()
